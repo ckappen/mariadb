@@ -1,4 +1,4 @@
-redis [![Build Status](https://travis-ci.org/ckappen/mariadb.svg?branch=master)](https://travis-ci.org/ckappen/mariadb)
+mariadb [![Build Status](https://travis-ci.org/ckappen/mariadb.svg?branch=master)](https://travis-ci.org/ckappen/mariadb)
 =========
 
 This role helps to deploy a MariaDB server on target host.
