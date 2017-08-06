@@ -1,0 +1,35 @@
+---
+# tasks file for mariadb
+
+- name: Add mytop Repository
+  yum:
+    name: "{{ mytop_repo_url }}"
+    state: present
+
+- name: Add official MariaDB Repository
+  yum_repository:
+    name: MariaDB
+    description: Official MariaDB Repository
+    baseurl: "http://yum.mariadb.org/10.3/centos7-amd64/"
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+    gpgcheck: 1
+
+- name: Install MariaDB Packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ mariadb_packages }}"
+    - "{{ mariadb_additional_packages }}"
+  tags:
+    - package
+    - mariadb
+
+- name: Start and enable MariaDB
+  systemd:
+    name: mariadb
+    enabled: yes
+    state: started
+  tags:
+    - service
+    - mariadb

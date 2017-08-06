@@ -1,0 +1,12 @@
+---
+# defaults file for mariadb
+
+mytop_repo_url: "http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm"
+
+#mariadb_service_name: "mariadb-server"
+mariadb_packages:
+  - MariaDB
+  - MariaDB-server
+
+mariadb_additional_packages:
+  - mytop
